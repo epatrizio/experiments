@@ -23,8 +23,8 @@ func server(c_req chan req) {
   for {
     in_request := <-c_req
     go func(r req) {
-      str_hello := "Hello, " + r.world + "!"
-      r.c_ret <-str_hello
+      str_world := "Hello, " + r.world + "!"
+      r.c_ret <-str_world
     }(in_request)
   }
 }
