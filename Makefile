@@ -11,3 +11,7 @@ vqueue_go:
 vqueue_ocaml:
 	ocamlc -thread unix.cma threads.cma -o vqueue threads/vqueue.ml
 	./vqueue
+
+clean:
+	rm -rf */*.cmo */*.cmi */*.cmx */*.o
+	rm -rf chan_hello vqueue
