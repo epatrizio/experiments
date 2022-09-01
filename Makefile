@@ -8,3 +8,6 @@ chan_hello_ocaml:
 vqueue_go:
 	go run threads/vqueue.go
 
+vqueue_ocaml:
+	ocamlc -thread unix.cma threads.cma -o vqueue threads/vqueue.ml
+	./vqueue
