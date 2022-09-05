@@ -88,3 +88,13 @@ a classic pattern to prevent the server from answering the wrong client.
 This second example is the Go and OCaml translation of the example already written in C that we talked about above.
 It's interesting to see the differences between the 3 implementations. The OCaml version is the simplest and most
 compact, but you have to be used to the functional approach and type inference.
+
+#### Verification
+
+As explained previously, the significant complexity of concurrent programming is the state space
+important increase, the sometimes non-deterministic execution result, and therefore the difficulty of testing.\
+In thread/spin/ directory, here is a small example (simple and not exhaustive) of the use of
+[SPIN model checker](https://spinroot.com), a formal verification tool of multi-threaded applications.\
+Via the [Promela language](https://en.wikipedia.org/wiki/Promela), which is not a programming language
+but a language for describing asynchronous systems, SPIN check flows between processes, scan the entire state space
+(in our example, spin scan 181 states), check system global properties, etc.
