@@ -19,3 +19,8 @@
 *.cmi
 chan_hello
 vqueue
+
+# spin
+pan.*
+vqueue.pml.trail
+verif
