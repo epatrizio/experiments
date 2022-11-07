@@ -83,12 +83,32 @@ def existsContact (book : Phonebook) (name : Name) : Bool :=
   | none => false
   | some _ => true
 
+example:
+  is_some (findContact get_test_book "eric") = true :=
+by
+  simp[findContact]
+
+example:
+  is_some (findContact get_test_book "not") = false :=
+by
+  simp[findContact]
+
 -- | add contact
 
 def addContact (book : Phonebook) (name : Name) (num : Number) (email : Email) : Phonebook :=
   match findContact book name with
   | none => {name := name, number := num, email := email}::book
   | some _ => book
+
+example:
+  (addContact get_test_book "new" "000" "new@dom.ext").length = get_test_book.length + 1 :=
+by
+  simp
+
+example:
+  (addContact get_test_book "eric" "000" "eric@dom.ext").length = get_test_book.length :=
+by
+  simp
 
 -- | delete contact
 
@@ -99,5 +119,15 @@ def delContact (book : Phonebook) (name : Name) : Phonebook :=
       match name == c.name with
       | true => r
       | false => c::delContact r name
+
+example:
+  (delContact get_test_book "new").length = 2 :=
+by
+  simp
+
+example:
+  (delContact get_test_book "eric").length = 1 :=
+by
+  simp
 
 end Phonebook
