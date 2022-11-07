@@ -110,6 +110,32 @@ example:
 by
   simp
 
+-- add contact increases (not strict) the phonebook size 
+theorem addContactLen (book : Phonebook) (name : Name) (num : Number) (email : Email) :
+  (addContact book name num email).length ≥ book.length :=
+by
+  simp[addContact]
+  cases findContact book name
+  case none => 
+    simp_arith
+  case some c =>
+    simp
+
+-- search for an added contact is positive
+theorem addFindContact (book : Phonebook) (name : Name) (num : Number) (email : Email) :
+  is_some (findContact (addContact book name num email) name) = true :=
+by
+  simp[addContact]
+  cases findContact book name
+  case none =>
+    simp[findContact]
+    trivial
+  case some c =>
+    simp[is_some]
+    split
+    . simp[findContact] <;> sorry -- False / false = true - contradiction ? (trivial?)
+    . rfl
+
 -- | delete contact
 
 def delContact (book : Phonebook) (name : Name) : Phonebook :=
@@ -129,5 +155,38 @@ example:
   (delContact get_test_book "eric").length = 1 :=
 by
   simp
+
+-- delete contact in an empty phonebook always return an empty phonebook
+theorem delContactEmpty (name : Name) :
+  delContact List.nil name = List.nil :=
+by
+  simp[delContact]
+
+-- delete contact decreases (not strict) the phonebook size
+theorem delContactLen (book : Phonebook) (name : Name) :
+  (delContact book name).length ≤ book.length :=
+by
+  induction book
+  case nil => simp[delContactEmpty]
+  case cons hc tlc Hind => 
+    simp[delContact]
+    split
+    . simp_arith
+    . sorry   -- intermediate theorem ?
+
+-- search for an deleted contact is negative
+theorem deleteFindContact (book : Phonebook) (name : Name) :
+  is_some (findContact (delContact book name) name) = false :=
+by
+  simp[delContact]
+  cases findContact book name
+  case none =>
+    simp[findContact]
+    sorry
+  case some c =>
+    simp[is_some]
+    split
+    . rfl
+    . sorry
 
 end Phonebook
