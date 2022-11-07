@@ -1,3 +1,5 @@
+# --- threads ---
+
 chan_hello_go:
 	go run threads/chan_hello.go
 
@@ -24,3 +26,16 @@ clean:
 	rm -rf */*.cmo */*.cmi */*.cmx */*.o
 	rm -rf pan.* vqueue.pml.trail
 	rm -rf chan_hello vqueue verif
+
+# --- proof_assistant/lean ---
+
+lean_build:
+	lake --dir proof_assistant/lean/ build
+
+lean_clean:
+	lake --dir proof_assistant/lean/ clean
+
+lean_build_force: lean_clean lean_build
+
+lean_run:
+	./proof_assistant/lean/build/bin/phonebook

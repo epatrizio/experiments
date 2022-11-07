@@ -24,3 +24,8 @@ vqueue
 pan.*
 vqueue.pml.trail
 verif
+
+# lean
+proof_assistant/lean/build
+proof_assistant/lean/lean_packages/*
+!/proof_assistant/lean/lean_packages/manifest.json
