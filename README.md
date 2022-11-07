@@ -104,7 +104,7 @@ but a language for describing asynchronous systems, SPIN check flows between pro
 In terms of program validation (already discussed above with SPIN and Promela),
 this is the step that follows the tests.
 A proof assistant provides a formal language to write mathematical definitions, properties in order to
-proove theorems!\
+proove theorems!
 
 *Testing finds bugs but does not prove that there are none!*\
 *With a theorem prover, we are guaranteed that a function (for example) is 100% correct!*
