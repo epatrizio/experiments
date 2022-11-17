@@ -172,7 +172,7 @@ by
     simp[delContact]
     split
     . simp_arith
-    . sorry   -- intermediate theorem ?
+    . simp_arith[*]
 
 -- search for an deleted contact is negative
 theorem deleteFindContact (book : Phonebook) (name : Name) :
