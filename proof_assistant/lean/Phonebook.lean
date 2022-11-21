@@ -175,18 +175,25 @@ by
     . simp_arith[*]
 
 -- search for an deleted contact is negative
+
+example:
+  is_some (findContact (delContact get_test_book "eric") "eric") = false :=
+by
+  simp
+
+example:
+  is_some (findContact (delContact get_test_book "new") "new") = false :=
+by
+  simp
+
+example (name : Name) :
+  is_some (findContact (delContact get_test_book name) name) = false :=
+by
+  sorry
+
 theorem deleteFindContact (book : Phonebook) (name : Name) :
   is_some (findContact (delContact book name) name) = false :=
 by
-  simp[delContact]
-  cases findContact book name
-  case none =>
-    simp[findContact]
-    sorry
-  case some c =>
-    simp[is_some]
-    split
-    . rfl
-    . sorry
+  sorry
 
 end Phonebook
