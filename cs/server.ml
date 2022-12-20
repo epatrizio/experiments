@@ -17,12 +17,13 @@ let check_service ic oc =
           while true do
             let in_sign = Cstruct.of_string (input_line ic) in
             let check = verify_msg pub_key in_sign user_login in
-              output_string oc (if check then "sign authentication OK :)\n" else "sign authentication KO :(\n");
-              flush oc;
+              print_endline (if check then "authentication success" else "authentication error");
+              output_string oc (if check then "OK\n" else "KO\n");
+              flush oc
           done
   with
-  | CryptoError msg -> Printf.printf "%s\n" msg; flush stdout; exit 0
-  | _ -> Printf.printf "End of text\n"; flush stdout; exit 0
+  | CryptoError msg -> print_endline msg; exit 0
+  | _ -> print_endline "End process"; exit 0
 
 let go_check_service () = 
   Unix.handle_unix_error server check_service

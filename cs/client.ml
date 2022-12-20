@@ -23,14 +23,13 @@ let client_login ic oc =
             let log = Cstruct.of_string (input_line stdin) in
               output_string oc ((Cstruct.to_string (sign_msg priv_key log))^"\n");
               flush oc;
-              let r = input_line ic in
-                Printf.printf "Response : %s\n\n" r;
-                if r = "END" then (Unix.shutdown_connection ic; raise Exit)
+              let resp = input_line ic in
+                Printf.printf "Response: %s\n\n" resp;
+                if resp = "OK" then (print_endline "Authetication success!"; raise Exit)
           done
   with
-  | CryptoError msg -> Printf.printf "%s\n" msg; flush stdout; exit 0
-  | Exit -> exit 0
-  | exn -> Unix.shutdown_connection ic ; raise exn
+  | CryptoError msg -> Unix.shutdown_connection ic; print_endline msg; flush stdout; exit 0
+  | Exit -> Unix.shutdown_connection ic; print_endline "Client close!"; flush stdout; exit 0
 
 let () =
   print_endline "Client start ...";
