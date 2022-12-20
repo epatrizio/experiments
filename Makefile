@@ -44,11 +44,11 @@ lean_run:
 
 cs_server_compile:
 	ocamlfind ocamlc -I=./cs -o server -package mirage-crypto-ec -package mirage-crypto-rng.unix \
-	-linkpkg unix.cma cs/crypto.ml cs/utils.ml cs/server.ml
+	-linkpkg cs/crypto.ml cs/utils.ml cs/server.ml
 
 cs_client_compile:
 	ocamlfind ocamlc -I=./cs -o client -package mirage-crypto-ec -package mirage-crypto-rng.unix \
-	-linkpkg unix.cma cs/crypto.ml cs/utils.ml cs/client.ml
+	-linkpkg cs/crypto.ml cs/utils.ml cs/client.ml
 
 cs_server_run:
 	./server
