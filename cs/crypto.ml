@@ -1,5 +1,7 @@
 open Mirage_crypto_ec
 
+exception CryptoError of string
+
 let () = Mirage_crypto_rng_unix.initialize ()
 
 let generate_keys () : Ed25519.priv * Ed25519.pub =
@@ -16,3 +18,15 @@ let sign_msg (private_key : Ed25519.priv) msg =
 
 let verify_msg (public_key : Ed25519.pub) sign msg : bool =
   Ed25519.verify ~key:public_key sign ~msg:msg
+
+let get_public_bkey (bkey : bytes) : Ed25519.pub option =
+  let res = Ed25519.pub_of_cstruct (Cstruct.of_bytes bkey) in
+    match res with
+    | Ok pub -> Some pub
+    | Error _ -> None
+
+let get_private_bkey (bkey : bytes) : Ed25519.priv option =
+  let res = Ed25519.priv_of_cstruct (Cstruct.of_bytes bkey) in
+    match res with
+    | Ok priv -> Some priv
+    | Error _ -> None
