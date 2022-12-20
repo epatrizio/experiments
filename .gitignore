@@ -19,6 +19,8 @@
 *.cmi
 chan_hello
 vqueue
+client
+server
 
 # spin
 pan.*

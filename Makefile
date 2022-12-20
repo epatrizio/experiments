@@ -25,7 +25,7 @@ spin_verif:
 clean:
 	rm -rf */*.cmo */*.cmi */*.cmx */*.o
 	rm -rf pan.* vqueue.pml.trail
-	rm -rf chan_hello vqueue verif
+	rm -rf chan_hello vqueue client server verif
 
 # --- proof_assistant/lean ---
 
@@ -39,3 +39,19 @@ lean_build_force: lean_clean lean_build
 
 lean_run:
 	./proof_assistant/lean/build/bin/phonebook
+
+# --- cs ---
+
+cs_server_compile:
+	ocamlfind ocamlc -I=./cs -o server -package mirage-crypto-ec -package mirage-crypto-rng.unix \
+	-linkpkg unix.cma cs/crypto.ml cs/utils.ml cs/server.ml
+
+cs_client_compile:
+	ocamlfind ocamlc -I=./cs -o client -package mirage-crypto-ec -package mirage-crypto-rng.unix \
+	-linkpkg unix.cma cs/crypto.ml cs/utils.ml cs/client.ml
+
+cs_server_run:
+	./server
+
+cs_client_run:
+	./client
