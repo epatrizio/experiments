@@ -16,7 +16,7 @@ let check_service ic oc =
       | Some pub_key ->
           while true do
             let in_sign = Cstruct.of_string (input_line ic) in
-            let check = verify_msg pub_key in_sign user_login in
+            let check = verify_msg pub_key in_sign user_login in  (* check validity with public key *)
               print_endline (if check then "authentication success" else "authentication error");
               output_string oc (if check then "OK\n" else "KO\n");
               flush oc

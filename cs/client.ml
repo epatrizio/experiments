@@ -21,7 +21,7 @@ let client_login ic oc =
             print_string "Login: ";
             flush stdout;
             let log = Cstruct.of_string (input_line stdin) in
-              output_string oc ((Cstruct.to_string (sign_msg priv_key log))^"\n");
+              output_string oc ((Cstruct.to_string (sign_msg priv_key log))^"\n");  (* sign login with private key *)
               flush oc;
               let resp = input_line ic in
                 Printf.printf "Response: %s\n\n" resp;
