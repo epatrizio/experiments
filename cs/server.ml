@@ -10,7 +10,7 @@ let server service_fun =
 
 let check_service ic oc =
   try
-    let p_key = get_public_bkey keys.public_key in
+    let p_key = get_p_bkey Ed25519.pub_of_cstruct keys.public_key in
       match p_key with
       | None -> raise (CryptoError "public key error")
       | Some pub_key ->

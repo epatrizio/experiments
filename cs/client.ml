@@ -13,7 +13,7 @@ let client client_fun  =
 
 let client_login ic oc =
   try
-    let p_key = get_private_bkey keys.private_key in
+    let p_key = get_p_bkey Ed25519.priv_of_cstruct keys.private_key in
       match p_key with
       | None -> raise (CryptoError "private key error")
       | Some priv_key ->
