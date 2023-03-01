@@ -17,10 +17,14 @@
 # ocaml
 *.cmo
 *.cmi
+*.cmx
+*.o
+
 chan_hello
 vqueue
 client
 server
+life
 
 # spin
 pan.*

@@ -140,3 +140,12 @@ The implementation is based on this [documentation](https://caml.inria.fr/pub/do
 
 For another client-server component example, here is a small [http server](https://github.com/epatrizio/chttpserver)
 written in C language.
+
+## Conway's Game of Life
+
+Here is a [Game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) implementation.\
+Written in OCaml language, this is a classic example of functional programming.
+
+The most important thing is to discover this little game, which, from 2 simple rules, generates fascinating cell divisions.\
+It's up to you to try, to find, some extra starting points.\
+Have fun!

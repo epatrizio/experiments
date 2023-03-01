@@ -25,7 +25,7 @@ spin_verif:
 clean:
 	rm -rf */*.cmo */*.cmi */*.cmx */*.o
 	rm -rf pan.* vqueue.pml.trail
-	rm -rf chan_hello vqueue client server verif
+	rm -rf chan_hello vqueue client server verif life
 
 # --- proof_assistant/lean ---
 
@@ -55,3 +55,11 @@ cs_server_run:
 
 cs_client_run:
 	./client
+
+# --- life ---
+
+life_compile:
+	ocamlopt -o life unix.cmxa life_game/life.ml
+
+life_run:
+	./life
