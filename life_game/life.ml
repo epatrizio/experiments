@@ -4,13 +4,14 @@ let w = 30
 let life_screen = Array.make_matrix h w false
 
 let life_screen_init () : unit = 
-  life_screen.(10).(10) <- true;
-  life_screen.(10).(11) <- true;
-  life_screen.(11).(9) <- true;
-  life_screen.(11).(11) <- true;
-  life_screen.(12).(9) <- true;
-  life_screen.(12).(11) <- true;
-  life_screen.(13).(10) <- true
+  let rand_val (bound : int) : bool =
+    let r = Random.int bound in r = 0
+  in
+  for i = 0 to (h-1) do
+    for j = 0 to (w-1) do
+      life_screen.(i).(j) <- rand_val 5
+    done
+  done
 
 let is_alive (x : int) (y : int) : bool = life_screen.(x).(y)
 
