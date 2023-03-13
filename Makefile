@@ -25,7 +25,7 @@ spin_verif:
 clean:
 	rm -rf */*.cmo */*.cmi */*.cmx */*.o
 	rm -rf pan.* vqueue.pml.trail
-	rm -rf chan_hello vqueue client server verif life
+	rm -rf chan_hello vqueue client server verif life mandelbrot
 
 # --- proof_assistant/lean ---
 
@@ -63,3 +63,12 @@ life_compile:
 
 life_run:
 	./life
+
+# --- Mandelbrot / Julia sets ---
+
+mandelbrot_compile:
+	ocamlfind ocamlopt -I=./mandelbrot -o mandelbrot -package graphics \
+	-linkpkg life_game/mandelbrot.ml
+
+mandelbrot_run:
+	./mandelbrot

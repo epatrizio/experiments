@@ -25,6 +25,7 @@ vqueue
 client
 server
 life
+mandelbrot
 
 # spin
 pan.*
