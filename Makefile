@@ -59,7 +59,7 @@ cs_client_run:
 # --- life ---
 
 life_compile:
-	ocamlopt -o life unix.cmxa life_game/life.ml
+	ocamlopt -o life unix.cmxa classics/life.ml
 
 life_run:
 	./life
@@ -67,8 +67,8 @@ life_run:
 # --- Mandelbrot / Julia sets ---
 
 mandelbrot_compile:
-	ocamlfind ocamlopt -I=./mandelbrot -o mandelbrot -package graphics \
-	-linkpkg life_game/mandelbrot.ml
+	ocamlfind ocamlopt -o mandelbrot -package graphics \
+	-linkpkg classics/mandelbrot.ml
 
 mandelbrot_run:
 	./mandelbrot
