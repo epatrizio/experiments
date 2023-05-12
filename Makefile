@@ -24,8 +24,9 @@ spin_verif:
 
 clean:
 	rm -rf */*.cmo */*.cmi */*.cmx */*.o
+	rm -rf */*/*.cmo */*/*.cmi */*/*.cmx */*/*.o
 	rm -rf pan.* vqueue.pml.trail
-	rm -rf chan_hello vqueue client server verif life mandelbrot
+	rm -rf chan_hello vqueue client server verif life mandelbrot phonebook
 
 # --- proof_assistant/lean ---
 
@@ -39,6 +40,17 @@ lean_build_force: lean_clean lean_build
 
 lean_run:
 	./proof_assistant/lean/build/bin/phonebook
+
+# --- proof_assistant/ocaml ---
+
+phonebook_compile:
+	ocamlopt -I=./proof_assistant/ocaml -o phonebook \
+	proof_assistant/ocaml/phonebook_abstract.ml \
+	proof_assistant/ocaml/phonebook_concrete.ml \
+	proof_assistant/ocaml/main.ml
+
+phonebook_run:
+	./phonebook
 
 # --- cs ---
 

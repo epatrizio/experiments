@@ -26,6 +26,7 @@ client
 server
 life
 mandelbrot
+phonebook
 
 # spin
 pan.*
