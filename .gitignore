@@ -28,6 +28,7 @@ life
 mandelbrot
 phonebook
 functor
+monad
 
 # spin
 pan.*

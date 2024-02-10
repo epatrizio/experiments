@@ -87,10 +87,17 @@ functor_compile:
 functor_run:
 	./functor
 
+monad_compile:
+	ocamlopt -o monad design_patterns/monad.ml
+
+monad_run:
+	./monad
+
 # --- Utils (general) ---
 
 clean:
 	rm -rf */*.cmo */*.cmi */*.cmx */*.o
 	rm -rf */*/*.cmo */*/*.cmi */*/*.cmx */*/*.o
 	rm -rf pan.* vqueue.pml.trail
-	rm -rf chan_hello vqueue client server verif life mandelbrot phonebook functor
+	rm -rf chan_hello vqueue client server verif life mandelbrot phonebook \
+	functor monad
