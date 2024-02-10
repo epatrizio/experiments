@@ -27,6 +27,7 @@ server
 life
 mandelbrot
 phonebook
+functor
 
 # spin
 pan.*

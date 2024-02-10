@@ -5,6 +5,8 @@ only in a training context.\
 So, examples are simple but always (I hope) with an interesting pedagogical point of view.\
 Have fun!
 
+*Nb. See the Makefile: each example has its own rules.*
+
 ## Threads programming
 
 First of all, [concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing) is difficult, very difficult!\
@@ -159,3 +161,11 @@ Always written in OCaml language, this is another classic example of programming
 
 By changing the window size, the window zoom, and the colors generation, the results evolve and are beautiful.
 Have fun!
+
+## Design patterns
+
+### OCaml functor
+
+[`functor`](https://ocaml.org/docs/functors) (Module parameterized with other modules)
+is a major OCaml language feature not easy to understand.
+The concept is similar to interfaces in object-oriented programming.

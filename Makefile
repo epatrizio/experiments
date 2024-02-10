@@ -22,12 +22,6 @@ spin_verif:
 	gcc -o verif pan.c
 	./verif
 
-clean:
-	rm -rf */*.cmo */*.cmi */*.cmx */*.o
-	rm -rf */*/*.cmo */*/*.cmi */*/*.cmx */*/*.o
-	rm -rf pan.* vqueue.pml.trail
-	rm -rf chan_hello vqueue client server verif life mandelbrot phonebook
-
 # --- proof_assistant/lean ---
 
 lean_build:
@@ -84,3 +78,19 @@ mandelbrot_compile:
 
 mandelbrot_run:
 	./mandelbrot
+
+# --- Design patterns ---
+
+functor_compile:
+	ocamlopt -o functor design_patterns/functor.ml
+
+functor_run:
+	./functor
+
+# --- Utils (general) ---
+
+clean:
+	rm -rf */*.cmo */*.cmi */*.cmx */*.o
+	rm -rf */*/*.cmo */*/*.cmi */*/*.cmx */*/*.o
+	rm -rf pan.* vqueue.pml.trail
+	rm -rf chan_hello vqueue client server verif life mandelbrot phonebook functor
