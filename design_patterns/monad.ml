@@ -78,6 +78,40 @@ end = struct
   let lift = List.map
 end
 
+(* Intl monad - Application example: multilingual system
+   A standard example of the Reader monad concept *)
+module Intl : sig
+  type lang =
+    | Fr
+    | En
+
+  type 'a t = lang -> 'a
+
+  val return : 'a -> 'a t
+  val bind : 'a t -> ('a -> 'b t) -> 'b t
+  val ( let* ) : 'a t -> ('a -> 'b t) -> 'b t
+  val trans : 'a t -> lang -> 'a
+end = struct
+  type lang =
+    | Fr
+    | En
+
+  type 'a t = lang -> 'a
+
+  let return a = fun (_l : lang) -> a
+
+  let bind (at : lang -> 'a) (f : ('a -> 'b t)) : 'b t =
+    (fun l ->
+      let a = at l in
+      let bt = f a in
+      bt l)
+
+  let ( let* ) = bind
+
+  let trans (at : lang -> 'a) (l : lang) : 'a =
+    at l 
+end
+
 (* Minimal example
    With the monad pattern, an input/controls flow should be implemented
    in sequential style (more natural, readable ...) *)
@@ -128,3 +162,15 @@ let () =
       | Ok () -> print_endline "OK"
       | Error e -> print_endline e )
     (get_user_input ())
+
+(* Minimal example of Intl monad
+   The translation map is simulated by a constant (the translated key) in the monad.
+   OCaml's typing ensures that keys and translations exist in all languages. *)
+
+open Intl
+
+let hello : string t = fun l -> match l with Fr -> "Bonjour, monde!" | En -> "Hello, world!"
+
+let () =
+  print_endline (trans hello En);
+  print_endline (trans hello Fr);
