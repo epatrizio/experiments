@@ -93,6 +93,12 @@ monad_compile:
 monad_run:
 	./monad
 
+monad_rpn_compile:
+	ocamlopt -o rpn design_patterns/monad_rpn.ml
+
+monad_rpn_run:
+	./rpn
+
 # --- Utils (general) ---
 
 clean:
@@ -100,4 +106,4 @@ clean:
 	rm -rf */*/*.cmo */*/*.cmi */*/*.cmx */*/*.o
 	rm -rf pan.* vqueue.pml.trail
 	rm -rf chan_hello vqueue client server verif life mandelbrot phonebook \
-	functor monad
+	functor monad rpn

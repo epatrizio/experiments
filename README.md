@@ -177,5 +177,9 @@ because it's based on the [mathematical theory of categories](https://en.wikiped
 This example illustrates that it's possible to use them in simple contexts,
 allowing to begin to understand them, and see how powerful it is to obtain readable and safe code.
 
-Note that, in [Haskell](https://wiki.haskell.org/All_About_Monads), functors are part of monads,
-but nothing to do with OCaml functors.
+Have a look at a quick implementation of the
+[Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation):
+A classic (and more complete) example of a micro stack-based language managed by a state monad in a functor!
+
+*Note that, in [Haskell](https://wiki.haskell.org/All_About_Monads), functors are part of monads,
+but nothing to do with OCaml functors.*
