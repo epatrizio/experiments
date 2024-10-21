@@ -19,3 +19,7 @@ A classic (and more complete) example of a micro stack-based language managed by
 
 *Note that, in [Haskell](https://wiki.haskell.org/All_About_Monads), functors are part of monads,
 but nothing to do with OCaml functors.*
+
+## TypeScript
+
+TODO!
