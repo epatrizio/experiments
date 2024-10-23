@@ -51,7 +51,7 @@ type Some<T> = {
 }
 
 type None = {
-  _tag: "none"
+  _tag: "none",
   value: any
 }
 
@@ -112,3 +112,28 @@ let d_2 = bind(d_1)((x:number) : Option<number> => ret(x+2));
 console.log(d_2)
 // { _tag: "some", value: 42 }
 // only the last chain element needs to be processed
+// Note that there is no pattern matching in TS.
+// Use "if else" or "switch case" structures (less powerful)
+
+// Data structure example import
+
+import {
+  Stack,
+  stack_isempty,
+  stack_size,
+  stack_push,
+  stack_pop
+} from "./func_prog_ds.ts";
+
+
+let stack: Stack<string> = [];      // Stack impl with an array: could be hidden
+console.log(stack_isempty(stack));  // true
+
+stack_push("str1")(stack);
+stack_push("str2")(stack);
+// stack_push(1)(stack);            // typing error
+stack_push("str3")(stack);
+console.log(stack_isempty(stack));  // false
+console.log(stack_size(stack));     // 3
+console.log(stack_pop(stack));      // str3
+console.log(stack_size(stack));     // 2
