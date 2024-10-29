@@ -16,3 +16,4 @@ Have fun!
 - [Design patterns](design_patterns/)
   - OCaml functor
   - OCaml monad
+  - TypeScript, typing experiments in functional programming style

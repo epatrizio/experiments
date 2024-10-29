@@ -22,4 +22,12 @@ but nothing to do with OCaml functors.*
 
 ## TypeScript
 
-TODO!
+[TypeScript, JavaScript with syntax for types](https://www.typescriptlang.org),
+is very interesting because it allows to produce more structured and secure JS code.
+Here are a few simple examples written in a functional programming style.\
+TS typer is less powerful than OCaml one. This would be impossible, as TS must be compatible with JS
+(e.g. dynamic typing). But it's interesting to note that it's possible, with generics, to write more solid code.
+
+I use [deno, modern runtime for javascript and typescript](https://deno.com) to execute the code.
+It's very powerful, with many built-in tools, including TS support by default.\
+`deno run func_prog.ts` (see Makefile)

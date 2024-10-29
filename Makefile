@@ -99,6 +99,9 @@ monad_rpn_compile:
 monad_rpn_run:
 	./rpn
 
+ts_func_prog:
+	deno run design_patterns/func_prog.ts
+
 # --- Utils (general) ---
 
 clean:
