@@ -102,6 +102,12 @@ monad_rpn_run:
 ts_func_prog:
 	deno run design_patterns/func_prog.ts
 
+func_pt_compile:
+	gcc -Wall -Wextra -Werror -o func_pt_c design_patterns/func_pt.c
+
+func_pt_run:
+	./func_pt_c
+
 # --- Utils (general) ---
 
 clean:

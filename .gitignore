@@ -30,6 +30,7 @@ phonebook
 functor
 monad
 rpn
+func_pt_c
 
 # spin
 pan.*

@@ -31,3 +31,9 @@ TS typer is less powerful than OCaml one. This would be impossible, as TS must b
 I use [deno, modern runtime for javascript and typescript](https://deno.com) to execute the code.
 It's very powerful, with many built-in tools, including TS support by default.\
 `deno run func_prog.ts` (see Makefile)
+
+## C function pointer
+
+A mechanism allowing functions to be passed as arguments and invoked dynamically.
+Here, the examples show some array classic manipulations (array_map, array_fold).\
+More details and application contexts in this [tutorial](https://www.geeksforgeeks.org/c/function-pointer-in-c/).
