@@ -35,5 +35,10 @@ It's very powerful, with many built-in tools, including TS support by default.\
 ## C function pointer
 
 A mechanism allowing functions to be passed as arguments and invoked dynamically.
-Here, the examples show some array classic manipulations (array_map, array_fold).\
+Here, the examples show some array classic manipulations (`array_map`, `array_fold`, `array_iter`).
+`array_filter` should be another classic example but the implementation details are out of context.
+Indeed, the size of the array_filter output array is often different from the input array:
+So it should be probably a good idea to use a [resizable array](https://github.com/epatrizio/cds/blob/main/src/vector.h)
+specific data structure.
+
 More details and application contexts in this [tutorial](https://www.geeksforgeeks.org/c/function-pointer-in-c/).

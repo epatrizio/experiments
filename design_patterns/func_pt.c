@@ -35,12 +35,16 @@ int array_fold(int (*op)(int, int), int acc, int* array, int array_size)
     return res;
 }
 
-void array_print(int* array, int array_size)
+// signature: void func(int) (-element operation function-) -> int[] -> int
+void array_iter(void (*op)(int), int* array, int array_size)
 {
     for (int i = 0 ; i < array_size ; i++)
-        printf("%i, ", array[i]);
+        op(array[i]);
+}
 
-    printf("\n");
+void print_int(int i)
+{
+    printf("%i, ", i);
 }
 
 int main()
@@ -49,14 +53,15 @@ int main()
     int size = sizeof(arr) / sizeof(int);
 
     int* arr_res = array_map(mul2, arr, size);
-    array_print(arr_res, size);                         // 2, 4, 6, 8, 10
+    array_iter(print_int, arr_res, size);               // 2, 4, 6, 8, 10
+    printf("\n");
 
     int acc = array_fold(add, 0, arr, size);
     printf("array_fold result (init):%i\n", acc);       // 15
     acc = array_fold(add, 0, arr_res, size);
     printf("array_fold result (after map):%i\n", acc);  // 30
 
-    array_print(arr, size);                             // initial array unchanged: 1, 2, 3, 4, 5
+    array_iter(print_int, arr, size);                   // initial array unchanged: 1, 2, 3, 4, 5
 
     free(arr_res);
 
