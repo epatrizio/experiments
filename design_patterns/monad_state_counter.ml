@@ -1,5 +1,34 @@
-(* Counter module: State Monad implementation
-State monad intuition: transition from one state to another *)
+(* Counter module:
+
+1/ Basic implementation: with side effect for internal state
+2/ State Monad implementation
+    State monad intuition: transition from one state to another *)
+
+(* 1. **** *)
+
+module MakeBasicCounter () = struct
+  let id = ref 0
+
+  let count () =
+    incr id;
+    !id
+end
+
+(* 2 distinct BasicCounter *)
+module Cnt_1 = MakeBasicCounter ()
+module Cnt_2 = MakeBasicCounter ()
+
+let () =
+  print_int (Cnt_1.count ()); print_newline (); (* 1 *)
+  print_int (Cnt_1.count ()); print_newline (); (* 2 *)
+  print_int (Cnt_2.count ()); print_newline (); (* 1 *)
+  print_int (Cnt_1.count ()); print_newline (); (* 3 *)
+  print_int (Cnt_2.count ()); print_newline (); (* 2 *)
+  print_int (Cnt_2.count ()); print_newline (); (* 3 *)
+  print_int (Cnt_1.count ()); print_newline (); (* 4 *)
+  print_int (Cnt_2.count ()); print_newline (); (* 4 *)
+
+(* 2. **** *)
 
 module type S = sig
   type ('a, 'st) t

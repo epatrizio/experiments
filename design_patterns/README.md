@@ -14,7 +14,8 @@ This example illustrates that it's possible to use them in simple contexts,
 allowing to begin to understand them, and see how powerful it is to obtain readable and safe code.
 
 The Counter module, implemented as a state module (intuition: transition from one state to another),
-is a more complete example.
+is a more complete example. It's interesting to compare this with a basic implementation
+that has side effects for the internal state. Here, state monad is clearly overkill! ;)
 
 Then, have a look at a quick implementation of the
 [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation):
