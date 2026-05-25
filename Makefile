@@ -99,6 +99,12 @@ monad_rpn_compile:
 monad_rpn_run:
 	./rpn
 
+monad_state_counter_compile:
+	ocamlopt -o scnt design_patterns/monad_state_counter.ml
+
+monad_state_counter_run:
+	./scnt
+
 ts_func_prog:
 	deno run design_patterns/func_prog.ts
 
