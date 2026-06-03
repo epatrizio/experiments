@@ -50,7 +50,7 @@ This makes sense, for example, during independent intermediate multi-thread, mul
 
 ## Langages selection
 
-For my experiments, I used the Go language and the OCaml language.
+For my experiments, I used first Go and OCaml languages. And then, Lua.
 
 * **Go**\
 [Golang](https://go.dev) is probably the most suitable language for concurrent programming.
@@ -69,6 +69,13 @@ has very elegant concurrent programming mechanisms that are strongly typed and e
 is the asynchronous programming component written in monadic style which I used a bit in this
 [repository](https://github.com/epatrizio/ographics).
 Finally, [multicore OCaml](https://github.com/ocaml-multicore) is under development.
+
+* **Lua**\
+[Lua](https://www.lua.org) is a very interesting scripting language that offers a full implementation of
+[asynchronous coroutines](https://www.lua.org/manual/5.5/manual.html#6.3) in the standard library:
+it is both simple and powerful. More details here:
+  * The dedicated chapter in the [Lua book](https://www.lua.org/pil/9.1.html) *Programming in Lua*
+  * [Coroutine in Lua](https://www.lua.org/doc/jucs04.pdf) academic paper
 
 ## Hello world
 
