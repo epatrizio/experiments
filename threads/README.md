@@ -89,6 +89,9 @@ This second example is the Go and OCaml translation of the example already writt
 It's interesting to see the differences between the 3 implementations. The OCaml version is the simplest and most
 compact, but you have to be used to the functional approach and type inference.
 
+Lua version: Lua coroutine VS OCaml/Go Channel are different concepts.
+They are not used in the same way, with the same approach. #WIP
+
 ### Verification
 
 As explained previously, the significant complexity of concurrent programming is the state space

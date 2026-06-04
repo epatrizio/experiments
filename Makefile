@@ -17,6 +17,9 @@ vqueue_ocaml:
 	ocamlc -thread unix.cma threads.cma -o vqueue threads/vqueue.ml
 	./vqueue
 
+vstack_lua:
+	lua threads/vstack.lua
+
 spin_check:
 	spin threads/spin/vqueue.pml
 
